@@ -2,17 +2,21 @@
 
 
 /* ------------------ ABOUT TABS ---------------- */
-const tabsContainer = document.querySelector('.about-tabs'),
-aboutSection = document.querySelector(".about-section");
+const eduBtn = document.querySelector('#tab-item1');
+const expBtn = document.querySelector('#tab-item2');
+const eduContent = document.querySelector('#education');
+const expContent = document.querySelector('#experience');
 
-tabsContainer.addEventListener("click",(e)=>{
-    if(e.target.classList.contains("tab-item") && !e.target.classList.contains('active')){
-        tabsContainer.querySelector('.active').classList.remove('active');
-        e.target.classList.add('active');
-        const target = e.target.getAttribute('data-target');
-        aboutSection.querySelector('.tab-content.active').classList.remove('active');
-        aboutSection.querySelector(target).classList.add('active');
-        console.log(target)
-    }
-});
-
+eduBtn.addEventListener('click', ()=>{
+    eduContent.classList.add('active');
+    expContent.classList.remove('active');
+    eduBtn.classList.add('active');
+    expBtn.classList.remove('active');
+    
+})
+expBtn.addEventListener('click', ()=>{
+    expContent.classList.add('active');
+    eduContent.classList.remove('active');
+    expBtn.classList.add('active');
+    eduBtn.classList.remove('active');
+})
